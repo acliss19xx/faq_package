@@ -4,9 +4,9 @@ defined('C5_EXECUTE') or die("Access Denied.");
 
 class AclissFaq extends Object {
 
-     static function getByID($id) {
+     static function getByID($afID) {
           $db = Loader::db();
-          $data = $db->getRow('SELECT * FROM aclissfaq WHERE ID = ?', array($id));
+          $data = $db->getRow('SELECT * FROM aclissfaq WHERE afID = ?', array($afID));
           if (!empty($data)) {
                $aclissfaq = new AclissFaq();
                $aclissfaq->setPropertiesFromArray($data);
@@ -26,28 +26,28 @@ class AclissFaq extends Object {
 
      public function delete() {
           $db = Loader::db();
-          $db->execute("DELETE FROM aclissfaq where ID = ?", array($this->getAclissFaqID()));
+          $db->execute("DELETE FROM aclissfaq where afID = ?", array($this->getAclissFaqID()));
      }
 
      public function save($data) {
           $db = Loader::db();
-          $question = $date['question'];
+          $question = $data['question'];
           $answer = $data['answer'];
           $vals = array($question, $answer, $this->getAclissFaqID());
-          $db->query("UPDATE aclissfaq SET question = ?, answer = ? WHERE ID = ?", $vals);
+          $db->query("UPDATE aclissfaq SET question = ?, answer = ? WHERE afID = ?", $vals);
           $aclissfaq = AclissFaq::getByID($this->getAclissFaqID());
           return (is_a($aclissfaq, "AclissFaq")) ? $aclissfaq : false;
      }
 
      public static function add($data) {
           $db = Loader::db();
-          $question = $date['question'];
+          $question = $data['question'];
           $answer = $data['answer'];
           $vals = array($question, $answer);
           $db->query("INSERT INTO aclissfaq (question, answer) VALUES (?, ?)", $vals);
-          $id = $db->_insertID();
-          if (intval($id) > 0) {
-               return AclissFaq::getByID($id);
+          $afID = $db->_insertID();
+          if (intval($afID) > 0) {
+               return AclissFaq::getByID($afID);
           } else {
                return false;
           }
@@ -62,7 +62,7 @@ class AclissFaq extends Object {
      }
 
      public function getAclissFaqID() {
-          return intval($this->ID);
+          return intval($this->afID);
      }
 
      function br2nl($str) {

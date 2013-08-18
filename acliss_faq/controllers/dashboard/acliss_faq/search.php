@@ -2,7 +2,7 @@
 
 defined('C5_EXECUTE') or die("Access Denied.");
 
-class DashboardAclissFaqsSearchController extends Controller {
+class DashboardAclissFaqSearchController extends Controller {
 
      public function on_start() {
 
@@ -23,22 +23,22 @@ class DashboardAclissFaqsSearchController extends Controller {
           $form = Loader::helper('form');
           $this->set('form', $form);
           $this->addHeaderItem('<script type="text/javascript">$(function() { ccm_setupAdvancedSearch(\'acliss-faq\'); });</script>');
-          $aclissFaqList = $this->getRequestedSearchResults();
-          $aclissFaq = $aclissFaqList->getPage();
+          $aclissfaqList = $this->getRequestedSearchResults();
+          $aclissfaq = $aclissfaqList->getPage();
 
-          $this->set('$aclissFaqList', $$aclissFaqList);
-          $this->set('aclissFaq', $aclissFaq);
+          $this->set('aclissfaqList', $aclissfaqList);
+          $this->set('aclissfaq', $aclissfaq);
 
           if ($_REQUEST['acliss_faq_created']) {
                $this->set('message', t('FAQ Created.'));
-               $aclissFaq = AclissFaq::getByID($_REQUEST['ID']);
-               $this->set('aclissFaq', $aclissFaq);
+               $aclissfaq = AclissFaq::getByID($_REQUEST['afID']);
+               $this->set('aclissfaq', $aclissfaq);
           }
 
           if ($_REQUEST['acliss_faq_updated']) {
                $this->set('message', t('FAQ Updated.'));
-               $aclissFaq = AclissFaq::getByID($_REQUEST['ID']);
-               $this->set('aclissFaq', $aclissFaq);
+               $aclissfaq = AclissFaq::getByID($_REQUEST['afID']);
+               $this->set('aclissfaq', $aclissfaq);
           }
 
           if ($_REQUEST['acliss_faq_deleted']) {
@@ -51,14 +51,14 @@ class DashboardAclissFaqsSearchController extends Controller {
           Loader::model('acliss_faq', 'acliss_faq');
           Loader::model('acliss_faq_list', 'acliss_faq');
 
-          $aclissFaqList = new AclissFaqList();
+          $aclissfaqList = new AclissFaqList();
 
           if ($_REQUEST['question'] != '') {
-               $aclissFaqList->filterByTitle($_GET['question']);
+               $aclissfaqList->filterByQuestion($_GET['question']);
           }
           if ($_REQUEST['answer']) {
-               $aclissFaqList->setItemsPerPage($_REQUEST['answer']);
+               $aclissfaqList->setItemsPerPage($_REQUEST['answer']);
           }
-          return $aclissFaqList;
+          return $aclissfaqList;
      }
 }

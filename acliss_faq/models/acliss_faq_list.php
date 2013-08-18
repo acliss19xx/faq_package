@@ -11,7 +11,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 class AclissFaqList extends DatabaseItemList {
 
 	private $queryCreated;
-	protected $autoSortColumns = array("ID");
+	protected $autoSortColumns = array("afID");
 	protected $itemsPerPage = 10;
 
 	protected function setBaseQuery() {
@@ -31,7 +31,7 @@ class AclissFaqList extends DatabaseItemList {
 		$this->createQuery();
 		$r = parent::get($itemsToGet, $offset);
 		foreach ($r as $row) {
-			$aclissfaq = AclissFaq::getByID($row['ID']);
+			$aclissfaq = AclissFaq::getByID($row['afID']);
 			$aclissfaqList[] = $aclissfaq;
 		}
 		return $aclissfaqList;

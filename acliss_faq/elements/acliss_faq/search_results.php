@@ -8,7 +8,7 @@ $form = Loader::helper('form');
 
 	<div class="ccm-pane-body">
 		<div style="margin-bottom: 10px">
-			<?php print $ih->button(t('Add FAQ'), View::url('/dashboard/acliss_faqs/add'), 'right', 'primary'); ?>
+			<?php print $ih->button(t('Add FAQ'), View::url('/dashboard/acliss_faq/add'), 'right', 'primary'); ?>
 			<div class="clearfix"></div>
 		</div>
 		<div id="ccm-list-wrapper">
@@ -17,23 +17,23 @@ $form = Loader::helper('form');
 			$txt = Loader::helper('text');
 			$question = $_REQUEST['question'];
 			$url = Loader::helper('concrete/urls');
-			$bu = $url->getToolsURL('acliss_faqs/search_results', 'acliss_faq');
+			$bu = $url->getToolsURL('acliss_faq/search_results', 'acliss_faq');
 
-			if (count($aclissFaq) > 0) {
+			if (count($aclissfaq) > 0) {
 				?>	
 				<table border="0" cellspacing="0" cellpadding="0" id="ccm-acliss-faq-list" class="ccm-results-list">
 					<tr>
-						<th class="<?php echo $aclissFaqList->getSearchResultsClass('question') ?>">
-							<a href="<?php echo $aclissFaqList->getSortByURL('question', 'asc', $bu) ?>">
+						<th class="<?php echo $aclissfaqList->getSearchResultsClass('question') ?>">
+							<a href="<?php echo $aclissfaqList->getSortByURL('question', 'asc', $bu) ?>">
 							<?php echo t("Question"); ?>
 							</a>
 						</th>
 						<th width="135px"></th>
 					</tr>
 					<?php
-					foreach ($aclissFaq as $faq) {
-						$editAction = View::url('/dashboard/acliss_faqs/add', 'edit', $faq->getAclissFaqID());
-						$deleteAction = View::url('/dashboard/acliss_faqs/add', 'confirm_delete', $faq->getAclissFaqID());
+					foreach ($aclissfaq as $faq) {
+						$editAction = View::url('/dashboard/acliss_faq/add', 'edit', $faq->getAclissFaqID());
+						$deleteAction = View::url('/dashboard/acliss_faq/add', 'confirm_delete', $faq->getAclissFaqID());
 
 						if (!isset($striped) || $striped == 'ccm-list-record-alt') {
 							$striped = '';
@@ -43,7 +43,7 @@ $form = Loader::helper('form');
 						?>
 
 						<tr class="ccm-list-record <?php echo $striped ?>">
-							<td><?php echo $txt->highlightSearch($faq->getTitle(), $question); ?></td>
+							<td><?php echo $txt->highlightSearch($faq->getQuestion(), $question); ?></td>
 							<td>
 								<?php print $ih->button(t('Edit'), $editAction, 'right', 'primary', array('style' => "margin-left: 10px")); ?>
 								<?php print $ih->button(t('Delete'), $deleteAction, 'right', 'error'); ?>
@@ -59,12 +59,12 @@ $form = Loader::helper('form');
 
 		</div>
 
-		<?php $aclissFaqList->displaySummary(); ?>
+		<?php $aclissfaqList->displaySummary(); ?>
 		<div class="clearfix"></div>
 	</div>
 
 	<div class="ccm-pane-footer">
-		<?php $aclissFaqList->displayPagingV2($bu, false); ?>
+		<?php $aclissfaqList->displayPagingV2($bu, false); ?>
 		<div class="clearfix"></div>
 	</div>
 

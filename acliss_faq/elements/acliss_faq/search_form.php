@@ -1,7 +1,7 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?> 
 <?php  $form = Loader::helper('form'); 
 $url = Loader::helper('concrete/urls');
-$urlSearchAction = $url->getToolsURL('acliss_faqs/search_results', 'acliss_faq');
+$urlSearchAction = $url->getToolsURL('acliss_faq/search_results', 'acliss_faq');
 ?>
 	
 	<form method="get" id="ccm-acliss-faq-advanced-search" action="<?php echo $urlSearchAction;?>">
@@ -13,7 +13,7 @@ $urlSearchAction = $url->getToolsURL('acliss_faqs/search_results', 'acliss_faq')
 		<?php echo $form->label('question', t('question'))?>
 			<?php echo $form->text('question', $_REQUEST['question'], array('placeholder' => t('Question'), 'style'=> 'width: 140px')); ?>
 		</div>
-		<div  style="width: 100px; margin-left: 20px; float: left;">
+		<div  style="width: 160px; margin-left: 20px; float: left;">
 		<?php echo $form->label('answer', t('answer'))?>
 			<?php echo $form->text('answer', $_REQUEST['answer'], array('placeholder' => t('Answer'), 'style'=> 'width: 140px')); ?>
 		</div>

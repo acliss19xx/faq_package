@@ -36,13 +36,13 @@ class DashboardAclissFaqAddController extends Controller {
 
                if (!$this->error->has()) {
                     $data = array(
-                        'quesiton' => $question,
+                        'question' => $question,
                         'answer' => $answer);
                     $aclissfaq = AclissFaq::add($data);
                     if (is_a($aclissfaq, "AclissFaq")) {
-                         $this->redirect('/dashboard/acliss_faqs/search?ID=' . $aclissfaq->getAclissFaqID() . '&acliss_faq_created=1');
+                         $this->redirect('/dashboard/acliss_faq/search?afID=' . $aclissfaq->getAclissFaqID() . '&acliss_faq_created=1');
                     } else {
-                         $this->error->add(t('An error occurred while trying to create this Acliss FAQ.'));
+                         $this->error->add(t('An error occurred while trying to create this FAQ.'));
                          $this->set('error', $this->error);
                     }
                } else {
@@ -52,12 +52,12 @@ class DashboardAclissFaqAddController extends Controller {
 
           if ($_POST['update']) {
 
-               $coID = $_POST['ID'];
-               if (!intval($coID) > 0) {
+               $afID = $_POST['afID'];
+               if (!intval($afID) > 0) {
                     $this->error->add(t('Invalid FAQ ID.'));
                }
 
-                $question = $_POST['question'];
+               $question = $_POST['question'];
                if (!$vals->notempty($question)) {
                     $this->error->add(t('Please include a question.'));
                }
@@ -72,13 +72,13 @@ class DashboardAclissFaqAddController extends Controller {
                }
 
                if (!$this->error->has()) {
-                    $aclissfaq = AclissFaq::getByID($ID);
+                    $aclissfaq = AclissFaq::getByID($afID);
                     $data = array(
                         'question' => $question,
                         'answer' => $answer);
                     if (is_a($aclissfaq, "AclissFaq")) {
                          $aclissfaq->save($data);
-                         $this->redirect('/dashboard/acliss_faqs/search?ID=' . $aclissfaq->getAclissFaqID() . '&acliss_faq_updated=1');
+                         $this->redirect('/dashboard/acliss_faq/search?afID=' . $aclissfaq->getAclissFaqID() . '&acliss_faq_updated=1');
                     } else {
                          $this->error->add(t('An error occurred while trying to update this Faq.'));
                          $this->set('error', $this->error);
@@ -89,8 +89,8 @@ class DashboardAclissFaqAddController extends Controller {
           }
      }
 
-     public function edit($coID) {
-          $aclissfaq = AclissFaq::getByID($coID);
+     public function edit($afID) {
+          $aclissfaq = AclissFaq::getByID($afID);
           if (is_a($aclissfaq, "AclissFaq")) {
                $this->set("aclissfaq", $aclissfaq);
                $this->view();
@@ -99,7 +99,7 @@ class DashboardAclissFaqAddController extends Controller {
           }
      }
 
-     public function delete($ID) {
+     public function delete($afID) {
           $valt = Loader::helper('validation/token');
           if (!$valt->validate('delete_acliss_faq')) {
                $this->error->add($valt->getErrorMessage());
@@ -107,14 +107,14 @@ class DashboardAclissFaqAddController extends Controller {
 
           if (!$this->error->has()) {
 
-               $aclissfaq = AclissFaq::getByID($ID);
+               $aclissfaq = AclissFaq::getByID($afID);
 
                if (is_a($aclissfaq, "AclissFaq")) {
                     $aclissfaq->delete();
-                    $this->redirect('/dashboard/acliss_faqs/search?acliss_faq_deleted=1');
+                    $this->redirect('/dashboard/acliss_faq/search?acliss_faq_deleted=1');
                }
           } else {
-               $aclissfaq = AclissFaq::getByID($ID);
+               $aclissfaq = AclissFaq::getByID($afID);
                if (is_a($aclissfaq, "AclissFaq")) {
                     $this->set("aclissfaq", $aclissfaq);
                     $this->set("delete", 1);
@@ -126,8 +126,8 @@ class DashboardAclissFaqAddController extends Controller {
           }
      }
 
-     public function confirm_delete($ID) {
-          $aclissfaq = AclissFaq::getByID($ID);
+     public function confirm_delete($afID) {
+          $aclissfaq = AclissFaq::getByID($afID);
           if (is_a($aclissfaq, "AclissFaq")) {
                $this->set("aclissfaq", $aclissfaq);
                $this->set("delete", 1);

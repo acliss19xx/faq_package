@@ -23,7 +23,8 @@ class AclissFaqBlockController extends BlockController {
 		Loader::model('acliss_faq_list','acliss_faq');
 
 		$faqList = new AclissFaqList();
-		$faqs = $faqList->getPage();
+		$faqList->sortBy('afDisplayOrder','asc');
+		$faqs = $faqList->get();
 
 		$this->set('faqs',$faqs);
 	}

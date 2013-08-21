@@ -24,6 +24,7 @@ class DashboardAclissFaqSearchController extends Controller {
           $this->set('form', $form);
           $this->addHeaderItem('<script type="text/javascript">$(function() { ccm_setupAdvancedSearch(\'acliss-faq\'); });</script>');
           $aclissfaqList = $this->getRequestedSearchResults();
+          $aclissfaqList->sortBy('afDisplayOrder','asc');
           $aclissfaq = $aclissfaqList->getPage();
 
           $this->set('aclissfaqList', $aclissfaqList);

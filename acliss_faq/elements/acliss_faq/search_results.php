@@ -21,38 +21,62 @@ $form = Loader::helper('form');
 
 			if (count($aclissfaq) > 0) {
 				?>	
-				<table border="0" cellspacing="0" cellpadding="0" id="ccm-acliss-faq-list" class="ccm-results-list">
-					<tr>
-						<th class="<?php echo $aclissfaqList->getSearchResultsClass('question') ?>">
-							<a href="<?php echo $aclissfaqList->getSortByURL('question', 'asc', $bu) ?>">
-							<?php echo t("Question"); ?>
-							</a>
-						</th>
-						<th width="135px"></th>
-					</tr>
-					<?php
-					foreach ($aclissfaq as $faq) {
-						$editAction = View::url('/dashboard/acliss_faq/add', 'edit', $faq->getAclissFaqID());
-						$deleteAction = View::url('/dashboard/acliss_faq/add', 'confirm_delete', $faq->getAclissFaqID());
+				<table border="0" cellspacing="0" cellpadding="0" id="ccm-acliss-faq-list-active" class="ccm-results-list">
+					<thead>
+						<tr>
+							<th class="<?php echo $aclissfaqList->getSearchResultsClass('question') ?>">
+								<a href="<?php echo $aclissfaqList->getSortByURL('question', 'asc', $bu) ?>">
+								<?php echo t("Question"); ?>
+								</a>
+							</th>
+							<th width="135px"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							foreach ($aclissfaq as $faq) {
 
-						if (!isset($striped) || $striped == 'ccm-list-record-alt') {
-							$striped = '';
-						} else if ($striped == '') {
-							$striped = 'ccm-list-record-alt';
+								if (!isset($striped) || $striped == 'ccm-list-record-alt') {
+									$striped = '';
+								} else if ($striped == '') {
+									$striped = 'ccm-list-record-alt';
+								}
+						?>
+
+							<tr class="ccm-list-record <?php echo $striped ?>" data-afid="<?php echo $faq->afID ?>">
+								<td><?php echo $txt->highlightSearch($faq->getQuestion(), $question); ?></td>
+								<td>
+								<?php
+									$editAction = View::url('/dashboard/acliss_faq/add', 'edit', $faq->getAclissFaqID()); 
+									$deleteAction = View::url('/dashboard/acliss_faq/add', 'confirm_delete', $faq->getAclissFaqID());
+									echo $ih->button(t('Edit'), $editAction, 'right', 'primary', array('style' => "margin-left: 10px")); 
+									echo $ih->button(t('Delete'), $deleteAction, 'right', 'error'); 
+								?>
+									<img class="ccm-group-sort" src="<?php echo ASSETS_URL_IMAGES?>/icons/up_down.png" width="14" height="14" />
+								</td>
+							</tr>
+						<?php
 						}
 						?>
 
-						<tr class="ccm-list-record <?php echo $striped ?>">
-							<td><?php echo $txt->highlightSearch($faq->getQuestion(), $question); ?></td>
-							<td>
-								<?php print $ih->button(t('Edit'), $editAction, 'right', 'primary', array('style' => "margin-left: 10px")); ?>
-								<?php print $ih->button(t('Delete'), $deleteAction, 'right', 'error'); ?>
-							</td>
-						</tr>
-						<?php
-					}
-					?>
+					</tbody>
 				</table>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$("#ccm-acliss-faq-list-active tbody").sortable({
+							handle: 'img.ccm-group-sort',
+							cursor: 'move',
+							opacity: 0.5,
+							stop: function(event, ui) {
+								var afID = ui.item.attr('data-afid');
+								var afDisplayOrder = ui.item.index() + 1;
+								var data = 'afID=' + afID + '&afDisplayOrder=' + afDisplayOrder;
+								$.post('<?php echo $url->getToolsURL('acliss_faq/faq_display_order', 'acliss_faq')?>', data);
+							}
+						});
+						$("#ccm-acliss-faq-list-active tbody").disableSelection();
+					});
+				</script>
 			<?php } else { ?>
 				<div id="ccm-list-none"><?php echo t('No FAQ Found.') ?></div>
 			<?php } ?>

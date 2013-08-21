@@ -39,19 +39,44 @@ class AclissFaq extends Object {
           return (is_a($aclissfaq, "AclissFaq")) ? $aclissfaq : false;
      }
 
-     public static function add($data) {
-          $db = Loader::db();
-          $question = $data['question'];
-          $answer = $data['answer'];
-          $vals = array($question, $answer);
-          $db->query("INSERT INTO aclissfaq (question, answer) VALUES (?, ?)", $vals);
-          $afID = $db->_insertID();
-          if (intval($afID) > 0) {
-               return AclissFaq::getByID($afID);
-          } else {
-               return false;
-          }
-     }
+	public static function add($data) {
+		$db = Loader::db();
+		$question = $data['question'];
+		$answer = $data['answer'];
+		$do = $db->GetOne("SELECT max(afDisplayOrder) as domax FROM aclissfaq");
+		if($do){
+			$displayOrder = $do['domax'] + 1;
+		} else {
+			$displayOrder = 1;
+		}
+      
+		$vals = array($question, $answer, $displayOrder);
+		$db->query("INSERT INTO aclissfaq (question, answer, afDisplayOrder) VALUES (?, ?, ?)", $vals);
+		$afID = $db->_insertID();
+		if (intval($afID) > 0) {
+			return AclissFaq::getByID($afID);
+		} else {
+			return false;
+		}
+	}
+
+	function setFaqDisplayOrder($displayOrder) {
+
+		$db = Loader::db();
+		$displayOrder = intval($displayOrder); 
+		$sql = "UPDATE aclissfaq SET afDisplayOrder = afDisplayOrder - 1 WHERE afDisplayOrder > ?";
+		$vals = array($this->afDisplayOrder);
+		$db->Execute($sql, $vals);
+
+		$sql = "UPDATE aclissfaq SET afDisplayOrder = afDisplayOrder + 1 WHERE afDisplayOrder >= ?";
+		$vals = array($displayOrder);
+		$db->Execute($sql, $vals);
+
+		$sql = "UPDATE aclissfaq SET afDisplayOrder = ? WHERE afID = ?";
+		$vals = array($displayOrder, $this->afID);
+		$db->Execute($sql, $vals);
+
+	}
 
      public function getQuestion() {
           return $this->question;

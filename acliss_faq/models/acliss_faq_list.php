@@ -11,7 +11,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 class AclissFaqList extends DatabaseItemList {
 
 	private $queryCreated;
-	protected $autoSortColumns = array("afID");
+	protected $autoSortColumns = array("afDisplayOrder");
 	protected $itemsPerPage = 10;
 
 	protected function setBaseQuery() {

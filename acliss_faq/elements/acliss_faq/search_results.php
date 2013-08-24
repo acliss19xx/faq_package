@@ -26,7 +26,7 @@ $form = Loader::helper('form');
 						<tr>
 							<th class="<?php echo $aclissfaqList->getSearchResultsClass('question') ?>">
 								<a href="<?php echo $aclissfaqList->getSortByURL('question', 'asc', $bu) ?>">
-								<?php echo t("Question"); ?>
+									<?php echo t("Question"); ?>
 								</a>
 							</th>
 							<th width="135px"></th>
@@ -34,28 +34,28 @@ $form = Loader::helper('form');
 					</thead>
 					<tbody>
 						<?php
-							foreach ($aclissfaq as $faq) {
+						foreach ($aclissfaq as $faq) {
 
-								if (!isset($striped) || $striped == 'ccm-list-record-alt') {
-									$striped = '';
-								} else if ($striped == '') {
-									$striped = 'ccm-list-record-alt';
-								}
-						?>
+							if (!isset($striped) || $striped == 'ccm-list-record-alt') {
+								$striped = '';
+							} else if ($striped == '') {
+								$striped = 'ccm-list-record-alt';
+							}
+							?>
 
 							<tr class="ccm-list-record <?php echo $striped ?>" data-afid="<?php echo $faq->afID ?>">
 								<td><?php echo $txt->highlightSearch($faq->getQuestion(), $question); ?></td>
 								<td>
-								<?php
-									$editAction = View::url('/dashboard/acliss_faq/add', 'edit', $faq->getAclissFaqID()); 
+									<?php
+									$editAction = View::url('/dashboard/acliss_faq/add', 'edit', $faq->getAclissFaqID());
 									$deleteAction = View::url('/dashboard/acliss_faq/add', 'confirm_delete', $faq->getAclissFaqID());
-									echo $ih->button(t('Edit'), $editAction, 'right', 'primary', array('style' => "margin-left: 10px")); 
-									echo $ih->button(t('Delete'), $deleteAction, 'right', 'error'); 
-								?>
-									<img class="ccm-group-sort" src="<?php echo ASSETS_URL_IMAGES?>/icons/up_down.png" width="14" height="14" />
+									echo $ih->button(t('Edit'), $editAction, 'right', 'primary', array('style' => "margin-left: 10px"));
+									echo $ih->button(t('Delete'), $deleteAction, 'right', 'error');
+									?>
+									<img class="ccm-group-sort" src="<?php echo ASSETS_URL_IMAGES ?>/icons/up_down.png" width="14" height="14" />
 								</td>
 							</tr>
-						<?php
+							<?php
 						}
 						?>
 
@@ -71,7 +71,7 @@ $form = Loader::helper('form');
 								var afID = ui.item.attr('data-afid');
 								var afDisplayOrder = ui.item.index() + 1;
 								var data = 'afID=' + afID + '&afDisplayOrder=' + afDisplayOrder;
-								$.post('<?php echo $url->getToolsURL('acliss_faq/faq_display_order', 'acliss_faq')?>', data);
+								$.post('<?php echo $url->getToolsURL('acliss_faq/faq_display_order', 'acliss_faq') ?>', data);
 							}
 						});
 						$("#ccm-acliss-faq-list-active tbody").disableSelection();

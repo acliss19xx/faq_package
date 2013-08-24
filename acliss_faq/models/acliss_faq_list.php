@@ -51,9 +51,10 @@ class AclissFaqList extends DatabaseItemList {
 		return $aclissfaq;
 	}
 
-	public function filterByQuestion($question){
+	public function filterByQuestion($question) {
 		$db = Loader::db();
 		$question = $db->quote("%" . $question . "%");
 		$this->filter(false, '(question LIKE ' . $question . ")");
 	}
+
 }

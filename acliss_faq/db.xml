@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-	<schema version="0.3">
-		<table name="aclissfaq">
-			<field name="afID" type="I">
-				<key/>
-				<autoincrement />
-				<unsigned/>
-			</field>
-			<field name="question" type="X"/>
-			<field name="answer" type="X2"/>
-			<field name="afDisplayOrder" type="I" size="10">
-				<NOTNULL/>
-				<DEFAULT value="0"/>
-				<UNSIGNED />
-			</field>
-		</table>
-	</schema>
+<schema version="0.3">
+	<table name="aclissfaq">
+		<field name="afID" type="I">
+			<key/>
+			<autoincrement />
+			<unsigned/>
+		</field>
+		<field name="question" type="X"/>
+		<field name="answer" type="X2"/>
+		<field name="afDisplayOrder" type="I" size="10">
+			<NOTNULL/>
+			<DEFAULT value="0"/>
+			<UNSIGNED />
+		</field>
+	</table>
+</schema>

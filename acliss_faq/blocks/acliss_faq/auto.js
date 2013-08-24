@@ -1,2 +1,2 @@
 ccmValidateBlockForm = function() {
-}
+	}

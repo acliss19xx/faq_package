@@ -1,8 +1,8 @@
-<?php  defined('C5_EXECUTE') or die("Access Denied.");
+<?php defined('C5_EXECUTE') or die("Access Denied.");
 ?>
 
 <div class="question-answer">
-	<?php foreach($faqs as $faq) { ?>
+	<?php foreach ($faqs as $faq) { ?>
 		<div class="question">
 			Q.<?php echo $faq->getQuestion() ?>
 		</div>

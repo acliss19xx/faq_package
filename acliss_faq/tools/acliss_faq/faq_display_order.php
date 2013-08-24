@@ -1,4 +1,5 @@
 <?php
+
 defined('C5_EXECUTE') or die(_("Access Denied."));
 $canRead = false;
 $ch = Page::getByPath('/dashboard/acliss_faq/search');
@@ -11,7 +12,7 @@ if (!$canRead) {
 	die(t("Access Denied."));
 }
 
-Loader::model('acliss_faq','acliss_faq');
+Loader::model('acliss_faq', 'acliss_faq');
 $afID = intval($_REQUEST['afID']);
 $afDisplayOrder = intval($_REQUEST['afDisplayOrder']);
 

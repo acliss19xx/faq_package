@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 defined('C5_EXECUTE') or die("Access Denied.");
 
 $cnt = Loader::controller('/dashboard/acliss_faq/search');

@@ -5,6 +5,8 @@
 			<key />
 			<unsigned />
 		</field>
-		<field name="dammy" type="I1"></field>
+		<field name="sortBy" type="X">
+			<NOTNULL />
+		</field>
 	</table>
 </schema>

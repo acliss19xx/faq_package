@@ -13,5 +13,13 @@
 			<DEFAULT value="0"/>
 			<UNSIGNED />
 		</field>
+		<field name="afDateAdd" type="T">
+			<NOTNULL/>
+			<DEFAULT value="0000-00-00 00:00:00"/>
+		</field>
+		<field name="afDateModified" type="T">
+			<NOTNULL/>
+			<DEFAULT value="0000-00-00 00:00:00"/>
+		</field>
 	</table>
 </schema>

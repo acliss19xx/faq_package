@@ -9,6 +9,7 @@ $ih = Loader::helper('concrete/interface');
 	<div class="ccm-pane-options">
 		<?php print $ih->button(t('Edit Again'), $this->url('/dashboard/acliss_faq/add/', 'edit', $aclissfaq->getAclissFaqID()), 'left', 'primary'); ?>
 		<?php print $ih->button(t('Delete'), $this->url('/dashboard/acliss_faq/add/', 'confirm_delete', $aclissfaq->getAclissFaqID()), 'left', 'error'); ?>
+		<?php print $ih->button(t('Add FAQ'), $this->url('/dashboard/acliss_faq/add/','', $aclissfaq->getAclissFaqID()), 'left', 'primary'); ?>
 		<?php print $ih->button(t('Back to List'), $this->url('/dashboard/acliss_faq/search/'), 'right', 'primary'); ?>
 	</div>
 	<div class="ccm-pane-body">

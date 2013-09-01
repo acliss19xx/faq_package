@@ -33,8 +33,10 @@ class AclissFaq extends Object {
 		$db = Loader::db();
 		$question = $data['question'];
 		$answer = $data['answer'];
-		$vals = array($question, $answer, $this->getAclissFaqID());
-		$db->query("UPDATE aclissfaq SET question = ?, answer = ? WHERE afID = ?", $vals);
+		$dh = Loader::helper('date');
+		$afDate = $dh->getSystemDateTime(); 
+		$vals = array($question, $answer, $afDate, $this->getAclissFaqID());
+		$db->query("UPDATE aclissfaq SET question = ?, answer = ?, afDateModified = ? WHERE afID = ?", $vals);
 		$aclissfaq = AclissFaq::getByID($this->getAclissFaqID());
 		return (is_a($aclissfaq, "AclissFaq")) ? $aclissfaq : false;
 	}
@@ -43,6 +45,8 @@ class AclissFaq extends Object {
 		$db = Loader::db();
 		$question = $data['question'];
 		$answer = $data['answer'];
+		$dh = Loader::helper('date');
+		$afDate = $dh->getSystemDateTime(); 
 		$do = $db->GetOne("SELECT max(afDisplayOrder) as domax FROM aclissfaq");
 		if ($do) {
 			$displayOrder = $do['domax'] + 1;
@@ -50,8 +54,8 @@ class AclissFaq extends Object {
 			$displayOrder = 1;
 		}
 
-		$vals = array($question, $answer, $displayOrder);
-		$db->query("INSERT INTO aclissfaq (question, answer, afDisplayOrder) VALUES (?, ?, ?)", $vals);
+		$vals = array($question, $answer, $displayOrder, $afDate, $afDate);
+		$db->query("INSERT INTO aclissfaq (question, answer, afDisplayOrder, afDateAdd, afDateModified) VALUES (?, ?, ?, ?, ?)", $vals);
 		$afID = $db->_insertID();
 		if (intval($afID) > 0) {
 			return AclissFaq::getByID($afID);

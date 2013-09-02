@@ -12,7 +12,7 @@
 	$options = array(
 		'displayOrder' => t('displayOrder'),
 		'addDate' => t('addDate'),
-		'moddifiedDate' => t('modifiedDate'),
+		'modifiedDate' => t('modifiedDate'),
 	);
 	echo $form->select('sortBy', $options, $sortBy);
 	?>

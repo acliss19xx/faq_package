@@ -7,10 +7,10 @@ $(function(){
 		var num = $(this).val();
 		if($('#answer' + num).is(":visible")){
 			$('#answer' + num).slideUp();
-			$('#question-btn' + num).text('A表示');
+			$('#question-btn' + num).text('<?php echo t('open')?>');
 		}else{
 			$('#answer' + num).slideDown();
-			$('#question-btn' + num).text('閉じる');
+			$('#question-btn' + num).text('<?php echo t('close')?>');
 		}
 	});
 });
@@ -23,7 +23,7 @@ $(function(){
 	?>
 
 	<div id="question<?php echo $bID . $loopcount?>" class="question">
-		<button id="question-btn<?php echo $bID . $loopcount; ?>" class="question-btn" value="<?php echo $bID . $loopcount ?>" >A表示</button>			
+		<button id="question-btn<?php echo $bID . $loopcount; ?>" class="question-btn" value="<?php echo $bID . $loopcount ?>" ><?php echo t('open')?></button>			
 		Q.<?php echo $faq->getQuestion() ?>
 	</div>
 		

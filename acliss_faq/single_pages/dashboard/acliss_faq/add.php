@@ -23,9 +23,9 @@ if ($confirmDelete) {
 		<div class="ccm-pane-body">
 			<h2><?php echo t("Do you really want to delete this FAQ?"); ?></h2>
 			<dl>
-				<dt><?php echo t("question"); ?></dt>
+				<dt><?php echo t('Question'); ?></dt>
 				<dd><?php echo $aclissfaq->getQuestion(); ?></dd>
-				<dt><?php echo t("answer"); ?></dt>
+				<dt><?php echo t('Answer'); ?></dt>
 				<dd><?php echo $aclissfaq->getAnswer(); ?></dd>
 			</dl>
 		</div>

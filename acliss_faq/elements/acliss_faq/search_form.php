@@ -11,11 +11,11 @@ $urlSearchAction = $url->getToolsURL('acliss_faq/search_results', 'acliss_faq');
 	<div class="ccm-pane-options-permanent-search">
 
 		<div style="width: 160px; margin-left: 20px; float: left;">
-			<?php echo $form->label('question', t('question')) ?>
+			<?php echo $form->label('question', t('Question')) ?>
 <?php echo $form->text('question', $_REQUEST['question'], array('placeholder' => t('Question'), 'style' => 'width: 140px')); ?>
 		</div>
 		<div  style="width: 160px; margin-left: 20px; float: left;">
-			<?php echo $form->label('answer', t('answer')) ?>
+			<?php echo $form->label('answer', t('Answer')) ?>
 <?php echo $form->text('answer', $_REQUEST['answer'], array('placeholder' => t('Answer'), 'style' => 'width: 140px')); ?>
 		</div>
 		<div  style="width: 100px; margin-left: 20px; float: left;">

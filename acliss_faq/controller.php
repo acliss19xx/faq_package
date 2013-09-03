@@ -9,7 +9,7 @@ class AclissFaqPackage extends Package {
 	protected $pkgVersion = '0.9';
 
 	public function getPackageDescription() {
-		return t('ページを作成しないタイプのFAQ作成.');
+		return t('no create page. FAQ package.');
 	}
 
 	public function getPackageName() {
@@ -34,7 +34,7 @@ class AclissFaqPackage extends Package {
 		Loader::model('single_page');
 
 		$def = SinglePage::add('/dashboard/acliss_faq', $pkg);
-		$def->update(array('cName' => t('Acliss Faq'), 'cDescription' => t('faq用のシングルページとブロックを提供します。')));
+		$def->update(array('cName' => t('Acliss Faq'), 'cDescription' => t('faq singlepage block')));
 
 		$def = SinglePage::add('/dashboard/acliss_faq/search', $pkg);
 		$def->update(array('cName' => t('Search FAQ'), 'cDescription' => t('Search FAQ.')));

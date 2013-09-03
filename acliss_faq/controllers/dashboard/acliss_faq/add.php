@@ -80,7 +80,7 @@ class DashboardAclissFaqAddController extends Controller {
 					$aclissfaq->save($data);
 					$this->redirect('/dashboard/acliss_faq/search?afID=' . $aclissfaq->getAclissFaqID() . '&acliss_faq_updated=1');
 				} else {
-					$this->error->add(t('An error occurred while trying to update this Faq.'));
+					$this->error->add(t('An error occurred while trying to update this FAQ.'));
 					$this->set('error', $this->error);
 				}
 			} else {

@@ -14,9 +14,9 @@ $ih = Loader::helper('concrete/interface');
 	</div>
 	<div class="ccm-pane-body">
 		<dl>
-			<dt><?php echo t("question"); ?></dt>
+			<dt><?php echo t('Question'); ?></dt>
 			<dd><?php echo $aclissfaq->getQuestion(); ?></dd>
-			<dt><?php echo t("answer"); ?></dt>
+			<dt><?php echo t('Answer'); ?></dt>
 			<dd><?php echo $aclissfaq->getAnswer(); ?></dd>
 		</dl>
 	</div>

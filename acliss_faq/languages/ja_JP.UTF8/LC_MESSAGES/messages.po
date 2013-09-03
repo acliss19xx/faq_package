@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-04 05:28+0900\n"
+"PO-Revision-Date: 2013-09-04 05:46+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;t\n"
+"X-Poedit-Basepath: /home/concrete5/git/\n"
+"X-Poedit-SearchPath-0: acliss/faq_package\n"
+
+#: acliss/faq_package/acliss_faq/controller.php:3
+#: acliss/faq_package/acliss_faq/tools/acliss_faq/faq_display_order.php:3
+#: acliss/faq_package/acliss_faq/tools/acliss_faq/faq_display_order.php:12
+#: acliss/faq_package/acliss_faq/elements/editor_config.php:2
+msgid "Access Denied."
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controller.php:12
+msgid "no create page. FAQ package."
+msgstr "ページを作らないタイプのFAQ。"
+
+#: acliss/faq_package/acliss_faq/controller.php:16
+msgid "simple faq"
+msgstr "シンプルなFAQ"
+
+#: acliss/faq_package/acliss_faq/controller.php:37
+msgid "Acliss Faq"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controller.php:37
+msgid "faq singlepage block"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controller.php:40
+msgid "Search FAQ"
+msgstr "FAQを検索"
+
+#: acliss/faq_package/acliss_faq/controller.php:40
+msgid "Search FAQ."
+msgstr "FAQを検索します。"
+
+#: acliss/faq_package/acliss_faq/controller.php:43
+msgid "Add / Edit FAQ"
+msgstr "FAQ 新規入力・編集"
+
+#: acliss/faq_package/acliss_faq/controller.php:43
+msgid "Add and Edit FAQ."
+msgstr "FAQ 新規入力・編集します。"
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:28
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:62
+msgid "Please include a question."
+msgstr "質問を入力してください。"
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:33
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:67
+msgid "Please include answer."
+msgstr "答えを入力してください。"
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:45
+msgid "An error occurred while trying to create this FAQ."
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:57
+msgid "Invalid FAQ ID."
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:83
+msgid "An error occurred while trying to update this FAQ."
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:98
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:123
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/add.php:136
+msgid "Invalid FAQ ID"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/search.php:34
+msgid "FAQ Created."
+msgstr "FAQを作成しました。"
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/search.php:40
+msgid "FAQ Updated."
+msgstr "FAQを更新しました。"
+
+#: acliss/faq_package/acliss_faq/controllers/dashboard/acliss_faq/search.php:46
+msgid "FAQ Deleted."
+msgstr "FAQを削除しました。"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/edit.php:10
+msgid "sort By"
+msgstr "並び替え順"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/edit.php:13
+msgid "displayOrder"
+msgstr "表示順"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/edit.php:14
+msgid "addDate"
+msgstr "登録日"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/edit.php:15
+msgid "modifiedDate"
+msgstr "更新日"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/templates/toggle/view.php:10
+msgid "open"
+msgstr "開く"
+
+#: acliss/faq_package/acliss_faq/blocks/acliss_faq/templates/toggle/view.php:13
+msgid "close"
+msgstr "閉じる"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_form.php:14
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_form.php:15
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_results.php:29
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:26
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:68
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:17
+msgid "Question"
+msgstr "質問"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_form.php:18
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_form.php:19
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:28
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:78
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:19
+msgid "Answer"
+msgstr "答え"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_form.php:22
+msgid "Search"
+msgstr "検索"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_results.php:11
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:46
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:12
+msgid "Add FAQ"
+msgstr "FAQ登録"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_results.php:52
+msgid "Edit"
+msgstr "編集"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_results.php:53
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:11
+msgid "Delete"
+msgstr "削除"
+
+#: acliss/faq_package/acliss_faq/elements/acliss_faq/search_results.php:81
+msgid "No FAQ Found."
+msgstr "FAQがありません。"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:20
+msgid "Delete FAQ"
+msgstr "FAQ削除"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:24
+msgid "Do you really want to delete this FAQ?"
+msgstr "削除してもいいですか？"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:36
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:121
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:125
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:37
+msgid "Delete Permanently"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:44
+msgid "Edit FAQ"
+msgstr "FAQ編集"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:63
+msgid "FAQ Information"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:122
+msgid "Update"
+msgstr "更新"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/add.php:126
+msgid "Add"
+msgstr "登録"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:8
+msgid "FAQ Details"
+msgstr ""
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:10
+msgid "Edit Again"
+msgstr "再編集"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:13
+msgid "Back to List"
+msgstr "リストに戻る"
+
+#: acliss/faq_package/acliss_faq/single_pages/dashboard/acliss_faq/search.php:24
+msgid "Search and Edit FAQ."
+msgstr "FAQを検索・編集"
+

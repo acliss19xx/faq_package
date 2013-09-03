@@ -24,11 +24,11 @@ class AclissFaqBlockController extends BlockController {
 		Loader::model('acliss_faq_list', 'acliss_faq');
 
 		$faqList = new AclissFaqList();
-		if($sortBy == 'addDate') {
+		if($this->sortBy == 'addDate') {
 			$faqList->sortBy('afDateAdd','desc');
-		}elseif($sortBy == 'moddifiedDate'){
-			$faqList->sortBy('afDateModdified','desc');
-		}elseif($sortBy == 'displayOrder'){
+		}elseif($this->sortBy == 'modifiedDate'){
+			$faqList->sortBy('afDateModified','desc');
+		}elseif($this->sortBy == 'displayOrder'){
 			$faqList->sortBy('afDisplayOrder', 'asc');
 		}
 			
